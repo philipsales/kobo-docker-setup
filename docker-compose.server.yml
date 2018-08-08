@@ -154,6 +154,9 @@ nginx:
       - ./nginx/:/tmp/kobo_nginx/:ro
       - ./nginx/nginx_command.bash:/etc/service/nginx/run:ro
       - ./secrets/:/tmp/kobo_toolbox_secrets/:ro
+      #- /etc/letsencrypt/:/etc/letsencrypt/:ro
+      - ./dh-param/dhparam.pem:/etc/ssl/certs/dhparam.pem:ro
+      - /docker-volumes-stage/etc/letsencrypt/:/etc/letsencrypt/:ro
   links:
     - kobocat
     - kpi
